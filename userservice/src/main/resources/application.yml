@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: userservice
+
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIGSERVER
+      name: DB_congif
+
+  config:
+    import: "configserver:http://localhost:8089"
+
+server:  
+  port: 8087

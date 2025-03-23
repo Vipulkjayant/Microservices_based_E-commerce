@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: productservice
+
+  cache:
+    type: redis
+
+  data: 
+    redis:
+      host: localhost
+      port: 5500
+
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIGSERVER
+      name: DB_congif 
+
+  config:
+    import: "configserver:http://localhost:8089"
+
+rabbitmq:
+  username: guest
+  password: guest
+  port: 5672
+
+server:
+  port: 8084

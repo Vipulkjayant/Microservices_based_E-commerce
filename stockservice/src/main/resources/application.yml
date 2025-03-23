@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: stockservice
+  rabbitmq:
+    port: 5672
+    username: guest
+    password: guest
+
+  config:
+    import: configserver:http://localhost:8089
+
+
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIGSERVER
+      name: DB_congif
+
+      
+server:
+  port: 8086

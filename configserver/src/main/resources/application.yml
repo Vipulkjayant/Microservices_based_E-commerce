@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: configserver
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Vipulkjayant/Ecommerce_config.git
+          clone-on-start: true
+
+server:
+  port: 8089

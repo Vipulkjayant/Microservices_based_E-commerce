@@ -1,0 +1,60 @@
+spring:
+  application:
+    name: apigateway
+
+  cloud:
+    gateway:
+     routes:
+      - id: authservice
+        uri: lb://AUTHSERVICE
+        predicates:
+        - Path=/apigateway/authservice/**
+        filters:
+        - StripPrefix=1
+  
+      - id: orderservice
+        uri: lb://ORDERSERVICE
+        predicates:
+        - Path=/apigateway/orderservice/**
+        filters:
+        - StripPrefix=1
+
+      - id: paymentservice
+        uri: lb://PAYMENTSERVICE
+        predicates:
+        - Path=/apigateway/paymentservice/**
+        filters:
+        - StripPrefix=1
+
+      - id: productservice
+        uri: lb://PRODUCTSERVICE
+        predicates:
+        - Path=/apigateway/productService/**
+        filters:
+        - StripPrefix=1
+
+      - id: shipmentservice
+        uri: lb://SHIPMENTSERVICE
+        predicates:
+        - Path=/apigateway/shipmentservice/**
+        filters:
+        - StripPrefix=1
+
+      - id: stockservice
+        uri: lb://STOCKSERVICE
+        predicates:
+        - Path=/apigateway/stockService/**
+        filters:
+        - StripPrefix=1
+
+      - id: userservice
+        uri: lb://USERSERVICE
+        predicates:
+        - Path=/apigateway/userservice/**
+        filters:
+        - StripPrefix=1
+       
+
+
+server:
+  port: 8080
